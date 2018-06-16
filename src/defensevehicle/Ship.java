@@ -1,13 +1,36 @@
+/**
+ * Copyright © 2018
+ * Steven Anderson
+ * All rights reserved
+ * 
+ * Homework 4 - Defense Vehicles
+ * Ship.java - Abstract Contact Model of a Ship Object 
+ * 06/20/2018
+ */
+
 package defensevehicle;
 
 public abstract class Ship implements Contact {
+	
+	public Ship(int length, int speed, String name, String type) {
+		setLength(length);
+		setSpeed(speed);
+		setName(name);
+		setType(type);
+	}
+
 	private int length;
+	
 	public int getLength() {
 		return length;
 	}
 	
 	public void setLength(int length) {
-		this.length = length;
+		if (length < 0) {
+			System.out.println("Length cannot be set to a negative number. No value will be set for length.");
+		} else {
+			this.length = length;	
+		}		
 	}
 	
 	private int speed;
@@ -17,12 +40,17 @@ public abstract class Ship implements Contact {
 	}
 	
 	public void setSpeed(int speed) {
-		this.speed = speed;
+		if (speed < 0) {
+			System.out.println("Speed cannot be set to a negative number. No value will be set for speed.");
+		} else {
+			this.speed = speed;	
+		}		
 	}
 	
 	public void setSpeed(String speed) {
 		try {
-			this.speed = Integer.parseInt(speed);
+			int parsedSpeed = Integer.parseInt(speed);
+			setSpeed(parsedSpeed);
 		} catch (NumberFormatException nfe) {
 			System.out.printf("Speed of %s is not an integer and cannot be used as a speed.  No speed has been set.", speed);
 			System.out.println();
