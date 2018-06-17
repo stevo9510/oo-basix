@@ -11,6 +11,11 @@
 package defensevehicle;
 
 public abstract class Aircraft implements Contact {
+	// Maximum speed (in mph) that can be set.  Anything past this would be very unrealistic (fastest aircraft was ~2200 mph)
+	private static final int MAX_SPEED = 20000;
+	// Maximum length (in meters) that can be set for Aircraft.  Anything past this would be very unrealistic
+	private static final int MAX_LENGTH = 500;
+	
 	private static final int DEFAULT_SPEED = 0;
 	private static final int DEFAULT_ALTITUDE = 0;
 	
@@ -33,11 +38,14 @@ public abstract class Aircraft implements Contact {
 	}
 	
 	public void setLength(int length) {
-		if(length < 0) {
+		if (length < 0) {
 			System.out.println("Length cannot be set to a negative number. No value will be set for length.");
+		} else if(length > MAX_LENGTH) {
+			System.out.printf("Length of aircraft cannot be set larger than %d. No value will be set for length.", MAX_LENGTH);
+			System.out.println();
 		} else {
 			this.length = length;	
-		}
+		}		
 	}
 	
 	private int speed;
@@ -47,11 +55,14 @@ public abstract class Aircraft implements Contact {
 	}
 	
 	public void setSpeed(int speed) {
-		if(speed < 0) {
+		if (speed < 0) {
 			System.out.println("Speed cannot be set to a negative number. No value will be set for speed.");
+		} else if(speed > MAX_SPEED) {
+			System.out.printf("Speed of aircraft cannot be set larger than %d. No value will be set for speed.", MAX_SPEED);
+			System.out.println();
 		} else {
 			this.speed = speed;	
-		}		
+		}			
 	}
 	
 	public void setSpeed(String speed) {
@@ -91,6 +102,7 @@ public abstract class Aircraft implements Contact {
 	}
 
 	public void setAltitude(int altitude) {
+		// There is no maximum altitude limit in case the Aircraft is a space shuttle
 		if(altitude < 0) {
 			System.out.println("Altitude cannot be set to a negative number. No value will be set for altitude.");
 		} else {

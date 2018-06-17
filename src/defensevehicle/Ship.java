@@ -12,6 +12,11 @@ package defensevehicle;
 
 public abstract class Ship implements Contact {
 	
+	// Maximum speed (in knots) that can be set.  Anything past this would be very unrealistic (water speed record is <500 knots)
+	private static final int MAX_SPEED = 10000;
+	// Maximum length (in meters) that can be set for ship.  Anything past this would be very unrealistic (largest ship was 458 meters)
+	private static final int MAX_LENGTH = 7500;
+	
 	public Ship(int length, int speed, String name, String type) {
 		setLength(length);
 		setSpeed(speed);
@@ -28,6 +33,9 @@ public abstract class Ship implements Contact {
 	public void setLength(int length) {
 		if (length < 0) {
 			System.out.println("Length cannot be set to a negative number. No value will be set for length.");
+		} else if(length > MAX_LENGTH) {
+			System.out.printf("Length of ship cannot be set larger than %d. No value will be set for length.", MAX_LENGTH);
+			System.out.println();
 		} else {
 			this.length = length;	
 		}		
@@ -42,6 +50,9 @@ public abstract class Ship implements Contact {
 	public void setSpeed(int speed) {
 		if (speed < 0) {
 			System.out.println("Speed cannot be set to a negative number. No value will be set for speed.");
+		} else if(speed > MAX_SPEED) {
+			System.out.printf("Speed of ship cannot be set larger than %d. No value will be set for speed.", MAX_SPEED);
+			System.out.println();
 		} else {
 			this.speed = speed;	
 		}		

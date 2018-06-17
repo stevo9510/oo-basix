@@ -15,6 +15,8 @@ public class P3 extends Aircraft {
 	private static final int DEFAULT_NUMBER_OF_ENGINES = 4;
 	private static final String DEFAULT_NAME = "Lockheed P-3 Orion";
 	
+	private static final int MAX_ENGINES = 20;
+	
 	public P3(String type) {
 		super(DEFAULT_LENGTH, DEFAULT_NAME, type);
 		setNumberEngines(DEFAULT_NUMBER_OF_ENGINES);
@@ -36,7 +38,16 @@ public class P3 extends Aircraft {
 	}
 
 	public void setNumberEngines(int numberEngines) {
-		this.numberEngines = numberEngines;
+		if(numberEngines < 0) {
+			System.out.printf("Number of engines cannot be set to a negative number. The value will be defaulted to %d.", DEFAULT_NUMBER_OF_ENGINES);
+			System.out.println();
+		} else if (numberEngines > MAX_ENGINES) {
+			this.numberEngines = MAX_ENGINES;
+			System.out.printf("Number of engines for P3 cannot be greater than %d. The value has been defaulted to the maximum amount.", MAX_ENGINES);
+			System.out.println();
+		} else {
+			this.numberEngines = numberEngines;
+		}
 	}
 	
 	@Override

@@ -13,12 +13,13 @@ package defensevehicle;
 public class Destroyer extends Ship {
 
 	// Default number of missiles for destroyer to be used on parse integer of setNumberMissiles(String) 
-	private static final int DEFAULT_MISSILES = 2;
-	
+	private static final int DEFAULT_MISSILES = 2;	
 	private static final int DEFAULT_LENGTH = 150;
 	private static final int DEFAULT_SPEED = 60;
 	private static final String DEFAULT_NAME = "A Default Destroyer";
 	private static final String DEFAULT_TYPE = "Very Powerful";
+	
+	private static final int MAX_MISSILES = 5000;
 	
 	public Destroyer(int length, int speed, String name, String type, int missiles) {
 		super(length, speed, name, type);
@@ -37,7 +38,14 @@ public class Destroyer extends Ship {
 
 	public void setNumberMissiles(int numberMissiles) {
 		if (numberMissiles < 0) {
-			System.out.println("Number of missiles cannot be set to a negative number. No value will be set for the number of missiles.");
+			this.numberMissiles = DEFAULT_MISSILES;
+			System.out.printf("Number of missiles cannot be set to a negative number of %d. The value will be defaulted to %d.", 
+					numberMissiles, DEFAULT_MISSILES);
+			System.out.println(); 
+		} else if(numberMissiles > MAX_MISSILES) {
+			this.numberMissiles = MAX_MISSILES;
+			System.out.printf("Number of missiles cannot be set greater than %d. The value has been defaulted to the maximum amount.", MAX_MISSILES);
+			System.out.println();
 		} else {
 			this.numberMissiles = numberMissiles;	
 		}		
@@ -49,7 +57,8 @@ public class Destroyer extends Ship {
 			setNumberMissiles(parsedMissiles);
 		} catch (NumberFormatException nfe) {
 			setNumberMissiles(DEFAULT_MISSILES);
-			System.out.printf("The value %s is not a valid amount of missiles.  The value has beeen defaulted to %d.", numberMissiles, DEFAULT_MISSILES);
+			System.out.printf("The value %s is not a valid amount of missiles.  The value has been defaulted to %d.", 
+					numberMissiles, DEFAULT_MISSILES);
 			System.out.println();
 		}
 	}
