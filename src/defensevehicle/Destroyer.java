@@ -13,13 +13,13 @@ package defensevehicle;
 public class Destroyer extends Ship {
 
 	// Default number of missiles for destroyer to be used on parse integer of setNumberMissiles(String) 
-	private static final int DEFAULT_MISSILES = 2;	
-	private static final int DEFAULT_LENGTH = 150;
-	private static final int DEFAULT_SPEED = 60;
-	private static final String DEFAULT_NAME = "A Default Destroyer";
-	private static final String DEFAULT_TYPE = "Very Powerful";
+	public static final int DEFAULT_MISSILES = 2;	
+	public static final int DEFAULT_LENGTH = 150;
+	public static final int DEFAULT_SPEED = 60;
+	public static final String DEFAULT_NAME = "A Default Destroyer";
+	public static final String DEFAULT_TYPE = "Very Powerful";
 	
-	private static final int MAX_MISSILES = 5000;
+	public static final int MAX_MISSILES = 5000;
 	
 	public Destroyer(int length, int speed, String name, String type, int missiles) {
 		super(length, speed, name, type);

@@ -12,8 +12,8 @@ package defensevehicle;
 
 public class Submarine extends Ship {
 
-	private static final int DEFAULT_TORPEDOS = 2;
-	private static final int MAX_TORPEDOS = 500;
+	public static final int DEFAULT_TORPEDOS = 2;
+	public static final int MAX_TORPEDOS = 500;
 	
 	public Submarine(int length, int speed, String name, String type, int torpedos) {
 		super(length, speed, name, type);
