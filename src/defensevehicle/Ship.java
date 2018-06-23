@@ -12,7 +12,7 @@ package defensevehicle;
 
 public abstract class Ship implements Contact {
 	
-	// Maximum speed (in knots) that can be set.  Anything past this would be very unrealistic (water speed record is <500 knots)
+	// Maximum speed (in knots) that can be set.  Anything past this would be very unrealistic (water speed record is < 500 knots)
 	public static final int MAX_SPEED = 10000;
 	// Maximum length (in meters) that can be set for ship.  Anything past this would be very unrealistic (largest ship was 458 meters)
 	public static final int MAX_LENGTH = 7500;

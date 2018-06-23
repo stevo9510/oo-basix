@@ -19,6 +19,8 @@ public abstract class Aircraft implements Contact {
 	public static final int DEFAULT_SPEED = 0;
 	public static final int DEFAULT_ALTITUDE = 0;
 	
+	// Constructor used to set default speed/altitude without passing these in.
+	// Calls into master constructor
 	public Aircraft(int length, String name, String type) {
 		this(length, DEFAULT_SPEED, name, type, DEFAULT_ALTITUDE);
 	}

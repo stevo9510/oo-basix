@@ -4,7 +4,7 @@
  * All rights reserved
  * 
  * Homework 4 - Defense Vehicles
- * Contact.java - Interface for a Contact defect vehicle with basic getter/setters of 
+ * Contact.java - Interface for a Contact defect vehicle with basic getter/setters of attributes
  * 06/20/2018
  */
 

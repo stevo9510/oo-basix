@@ -26,6 +26,7 @@ public class Destroyer extends Ship {
 		setNumberMissiles(missiles);
 	}
 	
+	// Construct a destroyer with all default values
 	public Destroyer() {
 		this(DEFAULT_LENGTH, DEFAULT_SPEED, DEFAULT_NAME, DEFAULT_TYPE, DEFAULT_MISSILES);
 	}
@@ -39,7 +40,7 @@ public class Destroyer extends Ship {
 	public void setNumberMissiles(int numberMissiles) {
 		if (numberMissiles < 0) {
 			this.numberMissiles = DEFAULT_MISSILES;
-			System.out.printf("Number of missiles cannot be set to a negative number of %d. The value will be defaulted to %d.", 
+			System.out.printf("Number of missiles cannot be set to a negative number of %d. The value has been defaulted to %d.", 
 					numberMissiles, DEFAULT_MISSILES);
 			System.out.println(); 
 		} else if(numberMissiles > MAX_MISSILES) {

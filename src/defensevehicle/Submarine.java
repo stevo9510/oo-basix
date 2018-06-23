@@ -43,7 +43,7 @@ public class Submarine extends Ship {
 			int parsedTorpedos = Integer.parseInt(numberTorpedos);
 			setNumberTorpedos(parsedTorpedos);
 		} catch (NumberFormatException nfe) {
-			this.numberTorpedos = DEFAULT_TORPEDOS;
+			setNumberTorpedos(DEFAULT_TORPEDOS);
 			System.out.printf("The value %s is not a valid amount of torpedos.  The value has been defaulted to %d.", numberTorpedos, DEFAULT_TORPEDOS);
 			System.out.println();
 		}
