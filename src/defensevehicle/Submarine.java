@@ -1,5 +1,5 @@
 /**
- * Copyright © 2018
+ * Copyright 2018
  * Steven Anderson
  * All rights reserved
  * 
